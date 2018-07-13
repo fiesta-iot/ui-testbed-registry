@@ -1,0 +1,90 @@
+<div>
+    <h2>Register Devices</h2>
+    <jhi-alert></jhi-alert>
+     <jhi-alert-error></jhi-alert-error>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="register-devices.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Register Devices manual
+                    </span>
+                </button>
+            </div>
+            
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="register-devices.text" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Register Devices by text
+                    </span>
+                </button>
+            </div>
+            
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="register-devices.upload" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Register Devices by Upload
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>                   
+<!--                    <th jh-sort-by="uploadContent"><span>Upload Content</span> <span class="glyphicon glyphicon-sort"></span></th>-->
+                    <th jh-sort-by="userID"><span>User ID</span> <span class="glyphicon glyphicon-sort"></span></th>                    
+                    <th jh-sort-by="userID"><span>IRI</span> <span class="glyphicon glyphicon-sort"></span></th>                    
+                    <th jh-sort-by="annotatedResourceDescription"><span>Annotated Resource Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="registerDevices in vm.registerDevices track by registerDevices.id">
+                    <td><a ui-sref="register-devices-detail({id:registerDevices.id})">{{registerDevices.id}}</a></td>
+                   
+<!--                    <td>
+                        <a ng-if="registerDevices.uploadContent" ng-click="vm.openFile(registerDevices.uploadContentContentType, registerDevices.uploadContent)">open</a>
+                        <span ng-if="registerDevices.uploadContent">{{registerDevices.uploadContentContentType}}, {{vm.byteSize(registerDevices.uploadContent)}}</span>
+                    </td>-->
+                    <td>{{registerDevices.userID}}</td>    
+                    <td>{{registerDevices.registerID}}</td> 
+                    <td>{{registerDevices.annotatedResourceDescription | limitTo:100}}</td>
+
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="register-devices-detail({id:registerDevices.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <!-- <button type="submit"
+                                    ui-sref="register-devices.edit({id:registerDevices.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="register-devices.delete({id:registerDevices.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button> -->
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

@@ -1,0 +1,184 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myRegisterTestbedsLabel">Register new Testbed</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.registerTestbeds.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.registerTestbeds.id" readonly />
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label" for="field_annotatedObservation">Annotated Observation</label>
+            <br/>
+           <p class="help-block">Content Type</p>
+            <select class="form-control" id="field_resourceObservationContentType" name="resourceObservationContentType" ng-model="vm.registerTestbeds.resourceObservationContentType" ng-options="resourceObservationContentType as resourceObservationContentType for resourceObservationContentType in vm.contentTypes track by resourceObservationContentType" required>
+                <option value="">-- Select Content Type --</option>
+            </select>
+            <p class="help-block"
+                    ng-show="editForm.contentType.$error.required">
+                    This field is required.
+                 </p>
+             <br/>
+            
+            <br/>
+            <textarea class="form-control" name="annotatedObservation" id="field_annotatedObservation"
+                    ng-model="vm.registerTestbeds.annotatedObservation"
+                    required></textarea>
+            <div ng-show="editForm.annotatedObservation.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.annotatedObservation.$error.required">
+                    This field is required. Maximum 65,535 characters
+                </p>
+            </div>
+            
+            <button   type="button" class="btn btn-primary" ng-click ="validateAnnotatedObseration()" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Validate Observation
+                    </span>
+           </button>
+         
+        </div>
+        
+       
+        
+        
+        <div class="form-group">
+            <label class="control-label" for="field_annotatedResourceDescription">Annotated Resource Description</label>
+            <br/>
+            <p class="help-block">Content Type</p>
+            <select  class="form-control" id="field_resourceDescriptionContentType" name="resourceDescriptionContentType" ng-model="vm.registerTestbeds.resourceDescriptionContentType" ng-options="resourceDescriptionContentType as resourceDescriptionContentType for resourceDescriptionContentType in vm.contentTypes track by resourceDescriptionContentType" required>
+                 <option value="">-- Select Content Type --</option>
+                
+            </select>
+            
+             <p class="help-block"
+                    ng-show="editForm.contentType.$error.required">
+                    This field is required.
+                 </p>
+             <br/>
+            
+            <br/>
+            <textarea  class="form-control" name="annotatedResourceDescription" id="field_annotatedResourceDescription"
+                    ng-model="vm.registerTestbeds.annotatedResourceDescription"
+                    required></textarea>
+            <div ng-show="editForm.annotatedResourceDescription.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.annotatedResourceDescription.$error.required">
+                    This field is required. Maximum 65,535 characters
+                </p>
+            </div>
+            
+            <button   type="button" class="btn btn-primary" ng-click ="validateAnnotatedResource()" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Validate Annotated Resource
+                    </span>
+           </button>
+           
+        </div>
+        
+        
+        <div class="form-group">
+            <label class="control-label" for="field_getApiKey">Get Api Key</label>
+            <input type="text" class="form-control" name="getApiKey" id="field_getApiKey"
+                    ng-model="vm.registerTestbeds.getApiKey"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_getLastObservationsURL">Get Last Observations URL</label>
+            <input type="text" class="form-control" name="getLastObservationsURL" id="field_getLastObservationsURL"
+                    ng-model="vm.registerTestbeds.getLastObservationsURL"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_getObservationsURL">Get Observations URL</label>
+            <input type="text" class="form-control" name="getObservationsURL" id="field_getObservationsURL"
+                    ng-model="vm.registerTestbeds.getObservationsURL"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_iri">IRI</label>
+            <input type="text" class="form-control" name="iri" id="field_iri"
+                    ng-model="vm.registerTestbeds.iri"
+                    required />
+            <div ng-show="editForm.iri.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.iri.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_latitude">Latitude</label>
+            <input type="text" class="form-control" name="latitude" id="field_latitude"
+                    ng-model="vm.registerTestbeds.latitude"
+                    required />
+            <div ng-show="editForm.latitude.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.latitude.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_longitude">Longitude</label>
+            <input type="text" class="form-control" name="longitude" id="field_longitude"
+                    ng-model="vm.registerTestbeds.longitude"
+                    required />
+            <div ng-show="editForm.longitude.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.longitude.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.registerTestbeds.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_pushApiKey">Push Api Key</label>
+            <input type="text" class="form-control" name="pushApiKey" id="field_pushApiKey"
+                    ng-model="vm.registerTestbeds.pushApiKey"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_pushLastObservationsURL">Push Last Observations URL</label>
+            <input type="text" class="form-control" name="pushLastObservationsURL" id="field_pushLastObservationsURL"
+                    ng-model="vm.registerTestbeds.pushLastObservationsURL"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_pushObservationsURL">Push Observations URL</label>
+            <input type="text" class="form-control" name="pushObservationsURL" id="field_pushObservationsURL"
+                    ng-model="vm.registerTestbeds.pushObservationsURL"
+                     />
+        </div>
+        
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

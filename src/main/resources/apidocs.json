@@ -1,0 +1,1091 @@
+{  
+    "swagger": "2.0",
+    "info": {  
+        "description": "TestbedRegistry API documentation",
+        "version": "0.0.1",
+        "title": "TestbedRegistry API",
+        "contact": {  
+
+        },
+        "license": {  
+
+        }
+    },
+    "host": "platform-dev.fiesta-iot.eu",
+    "basePath": "/ui.testbed-registry",
+    "tags": [  
+        {  
+            "name": "register-devices-resource",
+            "description": "Register Devices Resource"
+        },
+        {  
+            "name": "register-testbeds-resource",
+            "description": "Register Testbeds Resource"
+        },
+
+        {  
+            "name": "testbed-resource",
+            "description": "Testbed Resource"
+        }
+
+    ],
+    "paths": {  
+
+        "/api/register-devices/manual": {  
+            "post": {  
+                "tags": [  
+                    "register-devices-resource"
+                ],
+                "summary": "createRegisterDevices",
+                "operationId": "createRegisterDevicesUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "registerDevices",
+                        "description": "registerDevices",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/RegisterTestbedResourceManualDTO"
+                        }
+                    }
+                ],
+                "responses": {  
+                    
+                    "201": {  
+                        "description": "Created, register testbed resource success"
+                    },
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/register-devices/text": {  
+            "post": {  
+                "tags": [  
+                    "register-devices-resource"
+                ],
+                "summary": "createRegisterDevicesByText",
+                "operationId": "createRegisterDevicesByTextUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "registerTestbdResourceWithText",
+                        "description": "registerTestbdResourceWithText",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/RegisterTestbedResourceWithTextDTO"
+                        }
+                    }
+                ],
+                "responses": {  
+                    
+                    "201": {  
+                        "description": "Created, Register testbed resource by text success",
+            
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }  
+                }
+            }
+        },
+        "/api/register-devices/upload": {  
+            "post": {  
+                "tags": [  
+                    "register-devices-resource"
+                ],
+                "summary": "Register testbed resources by upload",
+                "operationId": "createRegisterDevicesByUploadUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "registerTestbdResourceWithUpload",
+                        "description": "Register testbed resource by upload file",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/RegisterTestbedResourceWithUpload"
+                        }
+                    }
+                ],
+                "responses": {  
+                   
+                    "201": {  
+                        "description": "Created, register resource success",
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                     "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+
+        "/api/register-testbeds": {  
+
+            "post": {  
+                "tags": [  
+                    "register-testbeds-resource"
+                ],
+                "summary": "createRegisterTestbeds",
+                "operationId": "createRegisterTestbedsUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "registerTestbeds",
+                        "description": "registerTestbeds",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/RegisterTestbedsDTO"
+                           
+                        }
+                    }
+                ],
+                "responses": {  
+                    
+                    "201": {  
+                        "description": "Created, register testbed success",                       
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                   "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }    
+                }
+            }
+        },
+        "/api/register-testbeds/validateAnnotatedObseration": {  
+            "post": {  
+                "tags": [  
+                    "register-testbeds-resource"
+                ],
+                "summary": "validateAnnotatedObseration",
+                "operationId": "validateAnnotatedObserationUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "ontologyValidatorBody",
+                        "description": "ontologyValidatorBody",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/OntologyValidatorBody"
+                        }
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "$ref": "#/definitions/OntologyValidatorResponse"
+                        }
+                    },
+                    
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/register-testbeds/validateAnnotatedResource": {  
+            "post": {  
+                "tags": [  
+                    "register-testbeds-resource"
+                ],
+                "summary": "validateAnnotatedResource",
+                "operationId": "validateAnnotatedResourceUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "body",
+                        "description": "body",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/OntologyValidatorBody"
+                        }
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "$ref": "#/definitions/OntologyValidatorResponse"
+                        }
+                    },
+                    
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/getAllTestbeds": {  
+            "get": {  
+                "tags": [  
+                    "testbed-resource"
+                ],
+                "summary": "getAllTestbeds",
+                "operationId": "getAllTestbedsUsingGET",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number of the requested page",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {  
+                        "name": "size",
+                        "in": "query",
+                        "description": "Size of a page",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {  
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+                        "required": false,
+                        "type": "array",
+                        "items": {  
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "type": "array",
+                            "items": {  
+                                "$ref": "#/definitions/RegisterTestbeds"
+                            }
+                        }
+                    },
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/getAllTestbedsByUserID": {  
+            "post": {  
+                "tags": [  
+                    "testbed-resource"
+                ],
+                "summary": "getAllTestbedsByUserID",
+                "operationId": "getAllTestbedsByUserIDUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number of the requested page",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {  
+                        "name": "size",
+                        "in": "query",
+                        "description": "Size of a page",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {  
+                        "in": "body",
+                        "name": "testbedRegisterInputDTO",
+                        "description": "testbedRegisterInputDTO",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/TestbedRegisterInputDTO"
+                        }
+                    },
+                    {  
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+                        "required": false,
+                        "type": "array",
+                        "items": {  
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                    
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/getAllTestbedsRegisterByRegisterIDList": {  
+            "post": {  
+                "tags": [  
+                    "testbed-resource"
+                ],
+                "summary": "getAllTestbedsRegisterByRegisterIDList",
+                "operationId": "getAllTestbedsRegisterByRegisterIDListUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "testbedRegisterInputDTO",
+                        "description": "testbedRegisterInputDTO",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/TestbedRegisterInputDTO"
+                        }
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                    
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/getAllTestbedsRegisterIDsByUserID": {  
+            "post": {  
+                "tags": [  
+                    "testbed-resource"
+                ],
+                "summary": "getAllTestbedsRegisterIDsByUserID",
+                "operationId": "getAllTestbedsRegisterIDsByUserIDUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number of the requested page",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {  
+                        "name": "size",
+                        "in": "query",
+                        "description": "Size of a page",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {  
+                        "in": "body",
+                        "name": "testbedRegisterInputDTO",
+                        "description": "testbedRegisterInputDTO",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/TestbedRegisterInputDTO"
+                        }
+                    },
+                    {  
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+                        "required": false,
+                        "type": "array",
+                        "items": {  
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                   
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/getTestbedByID/{id}": {  
+            "get": {  
+                "tags": [  
+                    "testbed-resource"
+                ],
+                "summary": "getRegisterTestbeds",
+                "operationId": "getRegisterTestbedsUsingGET_1",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "$ref": "#/definitions/RegisterTestbeds"
+                        }
+                    },
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/getTestbedByIRI": {  
+            "post": {  
+                "tags": [  
+                    "testbed-resource"
+                ],
+                "summary": "getTestbedByIRI",
+                "operationId": "getTestbedByIRIUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "testbedRegisterInputDTO",
+                        "description": "testbedRegisterInputDTO",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/TestbedRegisterInputDTO"
+                        }
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                   
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/getTestbedByIRIAndName": {  
+            "post": {  
+                "tags": [  
+                    "testbed-resource"
+                ],
+                "summary": "getTestbedByIRIAndName",
+                "operationId": "getTestbedByIRIAndNameUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "testbedRegisterInputDTO",
+                        "description": "testbedRegisterInputDTO",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/TestbedRegisterInputDTO"
+                        }
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                    
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        },
+        "/api/getTestbedByRegisterID": {  
+            "post": {  
+                "tags": [  
+                    "testbed-resource"
+                ],
+                "summary": "findTestbedByRegisterID",
+                "operationId": "findTestbedByRegisterIDUsingPOST",
+                "consumes": [  
+                    "application/json"
+                ],
+                "produces": [  
+                    "*/*"
+                ],
+                "parameters": [  
+                    {  
+                        "in": "body",
+                        "name": "getTestbedsByRegisterIDDTO",
+                        "description": "getTestbedsByRegisterIDDTO",
+                        "required": true,
+                        "schema": {  
+                            "$ref": "#/definitions/TestbedRegisterInputDTO"
+                        }
+                    }
+                ],
+                "responses": {  
+                    "200": {  
+                        "description": "OK",
+                        "schema": {  
+                            "type": "object"
+                        }
+                    },
+                    
+                    "401": {  
+                        "description": "Unauthorized"
+                    },
+                    "403": {  
+                        "description": "Forbidden"
+                    },
+                    "404": {  
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error, Response body error {\"errorMessage\":\"error message conent here\"} "     
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {  
+        "RegisterTestbedsDTO": {  
+            "type": "object",
+            "required": [  
+                "annotatedObservation",
+                "annotatedResourceDescription",
+                "iri",
+                "latitude",
+                "longitude",
+                "name",
+                "resourceDescriptionContentType",
+                "resourceObservationContentType"
+            ],
+            "properties": {  
+                "annotatedObservation": {  
+                    "type": "string"
+                },
+                "annotatedResourceDescription": {  
+                    "type": "string"
+                },
+                "getApiKey": {  
+                    "type": "string"
+                },
+                "getLastObservationsURL": {  
+                    "type": "string"
+                },
+                "getObservationsURL": {  
+                    "type": "string"
+                },
+                "id": {  
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "iri": {  
+                    "type": "string"
+                },
+                "latitude": {  
+                    "type": "string"
+                },
+                "longitude": {  
+                    "type": "string"
+                },
+                "name": {  
+                    "type": "string"
+                },
+                "pushApiKey": {  
+                    "type": "string"
+                },
+                "pushLastObservationsURL": {  
+                    "type": "string"
+                },
+                "pushObservationsURL": {  
+                    "type": "string"
+                },
+                "registerID": {  
+                    "type": "string"
+                },
+                "resourceDescriptionContentType": {  
+                    "type": "string"
+                },
+                "resourceID": {  
+                    "type": "string"
+                },
+                "resourceObservationContentType": {  
+                    "type": "string"
+                },
+                "resourceType": {  
+                    "type": "string"
+                },
+                "userID": {  
+                    "type": "string"
+                }
+            }
+        },
+        "OntologyValidatorBody": {  
+            "type": "object",
+            "properties": {  
+                "annotatedObservation": {  
+                    "type": "string"
+                },
+                "annotatedResourceDescription": {  
+                    "type": "string"
+                },
+                "contentType": {  
+                    "type": "string"
+                }
+            }
+        },
+        "TestbedRegisterInputDTO": {  
+            "type": "object",
+            "properties": {  
+                "expectedFieldsAsResult": {  
+                    "type": "array",
+                    "items": {  
+                        "type": "string"
+                    }
+                },
+                "iri": {  
+                    "type": "string"
+                },
+                "name": {  
+                    "type": "string"
+                },
+                "registerID": {  
+                    "type": "string"
+                },
+                "registerIDList": {  
+                    "type": "array",
+                    "items": {  
+                        "type": "string"
+                    }
+                },
+                "userID": {  
+                    "type": "string"
+                }
+            }
+        },
+        "RegisterTestbedResourceWithUpload": {  
+            "type": "object",
+            "required": [  
+                "contentType",
+                "uploadContent"
+            ],
+            "properties": {  
+                "contentType": {  
+                    "type": "string"
+                },
+                "uploadContent": {  
+                    "type": "array",
+                    "items": {  
+                        "type": "string",
+                        "format": "byte"
+                    }
+                }
+            }
+        },
+        "RegisterTestbedResourceWithTextDTO": {  
+            "type": "object",
+            "required": [  
+                "annotatedResourceDescription",
+                "contentType"
+            ],
+            "properties": {  
+                "annotatedResourceDescription": {  
+                    "type": "string"
+                },
+                "contentType": {  
+                    "type": "string"
+                }
+            }
+        },
+        "RegisterTestbedResourceManualDTO": {  
+            "type": "object",
+            "required": [  
+                "devices",
+                "registerTestbeds"
+            ],
+            "properties": {  
+                "devices": {  
+                    "type": "array",
+                    "items": {  
+                        "$ref": "#/definitions/DeviceDTO"
+                    }
+                },
+                "registerTestbeds": {  
+                    "properties": {  
+                        "iri": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            }
+        },
+        "OntologyValidatorResponse": {  
+            "type": "object",
+            "properties": {  
+                "message": {  
+                    "type": "string"
+                },
+                "result": {  
+                    "type": "boolean"
+                }
+            }
+        },
+        "DeviceDTO": {  
+            "type": "object",
+            "required": [  
+                "id",
+                "lat",
+                "lon",
+                "qk",
+                "uom"
+            ],
+            "properties": {  
+                "id": {  
+                    "type": "string"
+                },
+                "lat": {  
+                    "type": "number",
+                    "format": "float"
+                },
+                "lon": {  
+                    "type": "number",
+                    "format": "float"
+                },
+                "qk": {  
+                    "type": "string"
+                },
+                "uom": {  
+                    "type": "string"
+                }
+            }
+        },
+        "RegisterTestbeds": {  
+            "type": "object",
+            "required": [  
+                "annotatedObservation",
+                "annotatedResourceDescription",
+                "iri",
+                "latitude",
+                "longitude",
+                "name"
+            ],
+            "properties": {  
+                "annotatedObservation": {  
+                    "type": "string"
+                },
+                "annotatedResourceDescription": {  
+                    "type": "string"
+                },
+                "getApiKey": {  
+                    "type": "string"
+                },
+                "getLastObservationsURL": {  
+                    "type": "string"
+                },
+                "getObservationsURL": {  
+                    "type": "string"
+                },
+                "id": {  
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "iri": {  
+                    "type": "string"
+                },
+                "latitude": {  
+                    "type": "string"
+                },
+                "longitude": {  
+                    "type": "string"
+                },
+                "name": {  
+                    "type": "string"
+                },
+                "pushApiKey": {  
+                    "type": "string"
+                },
+                "pushLastObservationsURL": {  
+                    "type": "string"
+                },
+                "pushObservationsURL": {  
+                    "type": "string"
+                },
+                "registerID": {  
+                    "type": "string"
+                },
+                "resourceID": {  
+                    "type": "string"
+                },
+                "resourceType": {  
+                    "type": "string"
+                },
+                "userID": {  
+                    "type": "string"
+                }
+            }
+        },
+        "RegisterDevices": {  
+            "type": "object",
+            "properties": {  
+                "annotatedResourceDescription": {  
+                    "type": "string"
+                },
+                "id": {  
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "registerID": {  
+                    "type": "string"
+                },
+                "registerTestbeds": {  
+                    "$ref": "#/definitions/RegisterTestbeds"
+                },
+                "serviceResponse": {  
+                    "type": "string"
+                },
+                "uploadContent": {  
+                    "type": "array",
+                    "items": {  
+                        "type": "string",
+                        "format": "byte"
+                    }
+                },
+                "uploadContentContentType": {  
+                    "type": "string"
+                },
+                "userID": {  
+                    "type": "string"
+                }
+            }
+        },
+        "JWTToken": {  
+            "type": "object",
+            "properties": {  
+                "id_token": {  
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

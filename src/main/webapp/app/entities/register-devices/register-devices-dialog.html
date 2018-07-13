@@ -1,0 +1,70 @@
+
+<form name="editFormManual" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myRegisterDevicesLabel">Register new Device(s)</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.registerDevicesManual.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.registerDevicesManual.id" readonly />
+        </div>
+        
+        
+        <div class="form-group">
+            <label for="field_registerTestbeds">Select Testbed IRI</label>
+            <select class="form-control" id="field_registerTestbeds" name="registerTestbeds" ng-model="vm.registerDevicesManual.registerTestbeds" ng-options="registerTestbeds as registerTestbeds.registerID for registerTestbeds in vm.registertestbeds track by registerTestbeds.id" required>
+                <option value="">-- Select Testbed IRI --</option>
+            </select>
+        </div>
+        <div ng-show="editFormManual.registerTestbeds.$invalid">
+            <p class="help-block"
+                ng-show="editFormManual.registerTestbeds.$error.required">
+                This field is required.
+            </p>
+        </div>
+        
+       
+        
+        <button   type="button" class="btn btn-primary" ng-click ="addmore()" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Register Devices manual
+                    </span>
+         </button>
+                
+          <div class="form-group">
+          
+          
+          <div ng-repeat="field in data.fields">
+      			<div demo-display="field" quantity-kinds="vm.quantityKinds" uoms="vm.uoms"></div>
+    		</div>
+
+     <!-- <tt>{{data.fields}}</tt> -->
+         
+        </div>       
+        
+
+      
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editFormManual.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,29 @@
+{
+  "generator-jbooter": {
+    "jbooterVersion": "1.12.1",
+    "baseName": "TestbedRegistry",
+    "packageName": "eu.fiestaiot.portal.testbed",
+    "packageFolder": "eu/fiestaiot/portal/testbed",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "hibernateCache": "no",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "jwtSecretKey": "d2cacc1e057bfb42b1745cd4b0de146bd769a848",
+    "useSass": false,
+    "applicationType": "monolith",
+    "testFrameworks": [
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false,
+    "serviceDiscoveryType": false
+  }
+}

@@ -1,0 +1,72 @@
+
+<div>
+    <h2><span>Register Testbeds</span> {{vm.registerTestbeds.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Get Api Key</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.getApiKey}}</span>
+        </dd>
+        <dt><span>Get Last Observations URL</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.getLastObservationsURL}}</span>
+        </dd>
+        <dt><span>Get Observations URL</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.getObservationsURL}}</span>
+        </dd>
+        <dt><span>IRI</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.iri}}</span>
+        </dd>
+        <dt><span>Latitude</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.latitude}}</span>
+        </dd>
+        <dt><span>Longitude</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.longitude}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.name}}</span>
+        </dd>
+        <dt><span>Push Api Key</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.pushApiKey}}</span>
+        </dd>
+        <dt><span>Push Last Observations URL</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.pushLastObservationsURL}}</span>
+        </dd>
+        <dt><span>Push Observations URL</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.pushObservationsURL}}</span>
+        </dd>
+        <dt><span>Annotated Observation</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.annotatedObservation}}</span>
+        </dd>
+        <dt><span>Annotated Resource Description</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.annotatedResourceDescription}}</span>
+        </dd>
+        
+        <dt><span>User ID</span></dt>
+        <dd>
+            <span>{{vm.registerTestbeds.userID}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+   <!--  <button type="button" ui-sref="register-testbeds-detail.edit({id:vm.registerTestbeds.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button> -->
+</div>

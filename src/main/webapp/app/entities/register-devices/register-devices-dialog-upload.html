@@ -1,0 +1,74 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myRegisterDevicesLabel">Register new Device(s)</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.registerDevices.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.registerDevices.id" readonly />
+        </div>
+        
+        <div class="form-group" ngf-drop ngf-change="vm.setUploadContent($file, vm.registerDevices)">
+            <label class="control-label" for="field_uploadContent">Upload Content</label>
+            <br/>
+            <p class="help-block">Content Type</p>
+            <select class="form-control" id="field_contentType" name="contentType" ng-model="vm.registerDevices.contentType" ng-options="contentType as contentType for contentType in vm.contentTypes track by contentType" required>
+                <option value="">-- Select Content Type --</option>
+                 
+            </select>
+            <p class="help-block"
+                    ng-show="editForm.contentType.$error.required">
+                    This field is required.
+                 </p>
+             <br/>
+            <div>
+                <div ng-if="vm.registerDevices.uploadContent" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.registerDevices.uploadContentContentType, vm.registerDevices.uploadContent)">open</a><br>
+                    <span class="pull-left">{{vm.registerDevices.uploadContentContentType}}, {{vm.byteSize(vm.registerDevices.uploadContent)}}</span>
+                    <button type="button" ng-click="vm.registerDevices.uploadContent=null;vm.registerDevices.uploadContentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setUploadContent($file, vm.registerDevices)" ngf-max-size="16MB">
+                    Upload file
+                    
+                     <p class="help-block"
+                    ng-show="editForm.uploadContent.$error.required">
+                    This field is required. Maximum file size 16MB
+                     </p>
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="uploadContent" id="field_uploadContent"
+                    ng-model="vm.registerDevices.uploadContent" required
+                     />
+            <input type="hidden" class="form-control" name="uploadContentContentType" id="field_uploadContentContentType"
+                    ng-model="vm.registerDevices.uploadContentContentType" />
+            
+             <div ng-show="editForm.registerDevices.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.registerDevices.$error.required">
+                    This field is required.
+                </p>
+            </div>
+            
+        </div>
+
+       
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
